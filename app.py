@@ -1,8 +1,8 @@
 
-import streamlit as st
-import pandas as pd
+importndas as pd
 import joblib
-
+ streamlit as st
+import pa
 # Page settings
 st.set_page_config(
     page_title="GoldSilver AI",
@@ -17,8 +17,12 @@ def load_data():
 
 @st.cache_resource
 def load_models():
-    return joblib.load("gold_silver_models.pkl")
-
+    from huggingface_hub import hf_hub_download
+    path = hf_hub_download(
+        repo_id="surajkumar2618/gold-silver-model",
+        filename="gold_silver_models.pkl"
+    )
+    return joblib.load(path)
 df = load_data()
 models = load_models()
 
