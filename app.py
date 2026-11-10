@@ -2,7 +2,7 @@
 importndas as pd
 import joblib
  streamlit as st
-import pa
+import pandas
 # Page settings
 st.set_page_config(
     page_title="GoldSilver AI",
