@@ -7,8 +7,6 @@ import multi_horizon
 import pandas as pd
 import joblib
 import streamlit as st
-from streamlit_autorefresh import st_autorefresh
-from datetime import datetime
 # Page settings
 st.set_page_config(
     page_title="GoldSilver AI",
