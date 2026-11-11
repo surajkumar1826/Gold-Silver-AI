@@ -1,5 +1,5 @@
 import paper_trading
-import economic_calender as economic_calender
+import economic_calender as economic_calendar
 import report
 import pandas as pd
 import joblib
