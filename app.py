@@ -1,3 +1,4 @@
+import live_data
 import tv_chart
 import paper_trading
 import economic_calender as economic_calendar
@@ -75,7 +76,7 @@ st.caption(
     "Latest downloaded observation: "
     + str(latest["Timestamp_IST"])
 )
-
+live_data.render_banner(float(latest["Gold_Close"]), float(latest["Silver_Close"]))
 # Prediction section
 st.header("🤖 Machine Learning Predictions")
 
@@ -180,9 +181,10 @@ with st.expander("View Historical Dataset"):
 
 st.success("GoldSilver AI Dashboard Loaded Successfully!")
 # ===== NEW FEATURES =====
+live = live_data.get_live_prices()
 prices = {
-    "Gold": float(latest["Gold_Close"]),
-    "Silver": float(latest["Silver_Close"]),
+    "Gold": live["Gold"]["price"] if live else float(latest["Gold_Close"]),
+    "Silver": live["Silver"]["price"] if live else float(latest["Silver_Close"]),
 }
 preds = {
     "Gold": {"next": float(gold_price), "direction": str(gold_direction)},
