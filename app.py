@@ -1,3 +1,4 @@
+import tv_chart
 import paper_trading
 import economic_calender as economic_calendar
 import report
@@ -190,7 +191,7 @@ preds = {
 signals = {"Gold": str(gold_direction), "Silver": str(silver_direction)}
 
 st.divider()
-tab1, tab2, tab3, tab4 = st.tabs(["Paper Trading", "Economic Calendar", "PDF Report", "Multi-Horizon"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Paper Trading", "Economic Calendar", "PDF Report", "Multi-Horizon", "TradingView Chart"])
 
 with tab1:
     paper_trading.render(prices, signals)
@@ -218,3 +219,5 @@ with tab3:
     )
 with tab4:
     multi_horizon.render()
+    with tab5:
+        tv_chart.render()
