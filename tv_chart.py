@@ -32,6 +32,8 @@ def render():
         "locale": "en",
         "backgroundColor": "#0E1117",
         "allow_symbol_change": True,
+        "hide_side_toolbar"; False,
+        "hide_top_toolbar": False
         "withdateranges": True,
         "calendar": False,
         "support_host": "https://www.tradingview.com",
