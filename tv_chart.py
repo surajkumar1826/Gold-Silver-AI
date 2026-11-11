@@ -22,9 +22,7 @@ def render():
     tf = c2.selectbox("Timeframe", list(INTERVALS), index=4, key="tv_tf")
 
     cfg = {
-        "autosize": False,
-        "width": "100%",
-        "height": 760,
+        "autosize": True,
         "symbol": SYMBOLS[name],
         "interval": INTERVALS[tf],
         "timezone": "Asia/Kolkata",
