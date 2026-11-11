@@ -6,3 +6,6 @@ scikit-learn
 joblib
 matplotlib
 huggingface_hub
+fpdf2
+requests
+matplotlib
