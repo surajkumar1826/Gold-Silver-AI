@@ -1,6 +1,7 @@
 import paper_trading
 import economic_calender as economic_calendar
 import report
+import multi_horizon
 import pandas as pd
 import joblib
 import streamlit as st
@@ -171,7 +172,7 @@ preds = {
 signals = {"Gold": str(gold_direction), "Silver": str(silver_direction)}
 
 st.divider()
-tab1, tab2, tab3 = st.tabs(["Paper Trading", "Economic Calendar", "PDF Report"])
+tab1, tab2, tab3, tab4 = st.tabs(["Paper Trading", "Economic Calendar", "PDF Report", "Multi-Horizon"])
 
 with tab1:
     paper_trading.render(prices, signals)
@@ -197,3 +198,5 @@ with tab3:
         "application/pdf",
         key="pdf_dl",
     )
+with tab4:
+    multi_horizon.render()
