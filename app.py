@@ -7,12 +7,15 @@ import multi_horizon
 import pandas as pd
 import joblib
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
+from datetime import datetime
 # Page settings
 st.set_page_config(
     page_title="GoldSilver AI",
     page_icon="📈",
     layout="wide"
 )
+st_autorefresh(interval=60_000, key="live_refresh")
 st.markdown("""
 <style>
 [data-testid="stMetric"] {
