@@ -22,7 +22,9 @@ def render():
     tf = c2.selectbox("Timeframe", list(INTERVALS), index=4, key="tv_tf")
 
     cfg = {
-        "autosize": True,
+        "autosize": False,
+        "width": "100%",
+        "height": 760,
         "symbol": SYMBOLS[name],
         "interval": INTERVALS[tf],
         "timezone": "Asia/Kolkata",
@@ -39,14 +41,14 @@ def render():
     }
 
     html = (
-        '<div class="tradingview-widget-container" style="height:640px;width:100%">'
-        '<div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>'
+        '<div class="tradingview-widget-container" style="height:760px;width:100%">'
+        '<div class="tradingview-widget-container__widget" style="height:760px;width:100%"></div>'
         '<script type="text/javascript" '
         'src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>'
         + json.dumps(cfg)
         + "</script></div>"
     )
-    components.html(html, height=660)
+    components.html(html, height=780)
 
     st.caption("Chart TradingView ka hai (spot XAUUSD/XAGUSD, OANDA feed). "
                "Model ka data futures (GC=F, SI=F) pe hai, isliye price me thoda "
