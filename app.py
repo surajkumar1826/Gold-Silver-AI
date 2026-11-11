@@ -90,7 +90,7 @@ with col1:
         "Estimated next-hour price",
         f"${gold_price:,.2f}"
     )
-    st.write("Predicted direction:", gold_direction)
+    st.markdown("Predicted direction: " + (":green[**UP ▲**]" if str(gold_direction) == "UP" else ":red[**DOWN ▼**]"))
 
 with col2:
     st.subheader("Silver")
@@ -102,7 +102,7 @@ with col2:
         "Estimated next-hour price",
         f"${silver_price:,.2f}"
     )
-    st.write("Predicted direction:", silver_direction)
+    st.markdown("Predicted direction: " + (":green[**UP ▲**]" if str(silver_direction) == "UP" else ":red[**DOWN ▼**]"))
 
 # Historical price comparison
 st.header("📊 Gold vs Silver Price History")
@@ -118,7 +118,8 @@ price_data["Timestamp_IST"] = pd.to_datetime(
 price_data = price_data.set_index("Timestamp_IST")
 
 st.line_chart(
-    price_data[["Gold_Close", "Silver_Close"]]
+    price_data[["Gold_Close", "Silver_Close"]],
+    color=[#FFD700", "#COCOCO"]
 )
 
 # Correlation
