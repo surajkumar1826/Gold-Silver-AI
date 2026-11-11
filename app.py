@@ -1,5 +1,5 @@
 import paper_trading
-import economic_calender
+import economic_calender as economic_calender
 import report
 import pandas as pd
 import joblib
@@ -159,3 +159,41 @@ with st.expander("View Historical Dataset"):
     st.dataframe(df.tail(100), use_container_width=True)
 
 st.success("GoldSilver AI Dashboard Loaded Successfully!")
+# ===== NEW FEATURES =====
+prices = {
+    "Gold": float(latest["Gold_Close"]),
+    "Silver": float(latest["Silver_Close"]),
+}
+preds = {
+    "Gold": {"next": float(gold_price), "direction": str(gold_direction)},
+    "Silver": {"next": float(silver_price), "direction": str(silver_direction)},
+}
+signals = {"Gold": str(gold_direction), "Silver": str(silver_direction)}
+
+st.divider()
+tab1, tab2, tab3 = st.tabs(["Paper Trading", "Economic Calendar", "PDF Report"])
+
+with tab1:
+    paper_trading.render(prices, signals)
+
+with tab2:
+    economic_calendar.render()
+
+with tab3:
+    st.subheader("PDF Research Report")
+    ev, _ = economic_calendar.load_events()
+    upcoming = economic_calendar.get_upcoming(ev)
+    chart = report.make_chart(
+        price_data["Gold_Close"].tail(500),
+        price_data["Silver_Close"].tail(500),
+    )
+    pdf_bytes = report.build_pdf(
+        prices, preds, paper_trading.summary(prices), upcoming, chart
+    )
+    st.download_button(
+        "Download PDF report",
+        pdf_bytes,
+        "goldsilver_report.pdf",
+        "application/pdf",
+        key="pdf_dl",
+    )
