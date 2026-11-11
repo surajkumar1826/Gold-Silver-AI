@@ -9,3 +9,4 @@ huggingface_hub
 fpdf2
 requests
 matplotlib
+streamlit-autorefresh
