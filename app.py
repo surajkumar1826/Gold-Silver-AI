@@ -11,6 +11,23 @@ st.set_page_config(
     page_icon="📈",
     layout="wide"
 )
+st.markdown("""
+<style>
+[data-testid="stMetric"] {
+    background: linear-gradient(135deg, #1f2335, #14171f);
+    border: 1px solid #FFC83D55;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+[data-testid="stMetricValue"] { color: #FFC83D; }
+h1 {
+    background: linear-gradient(90deg, #FFD700, #FF8C00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # Load saved files
 @st.cache_data
