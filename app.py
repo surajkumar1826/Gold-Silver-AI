@@ -121,7 +121,7 @@ price_data = price_data.set_index("Timestamp_IST")
 
 st.line_chart(
     price_data[["Gold_Close", "Silver_Close"]],
-    color=[#FFD700", "#COCOCO"]
+    color=["#FFD700", "#C0C0C0"]
 )
 
 # Correlation
