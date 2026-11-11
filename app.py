@@ -13,7 +13,6 @@ st.set_page_config(
     page_icon="📈",
     layout="wide"
 )
-st_autorefresh(interval=60_000, key="live_refresh")
 st.markdown("""
 <style>
 [data-testid="stMetric"] {
