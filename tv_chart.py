@@ -21,7 +21,7 @@ def render():
     name = c1.selectbox("Asset", list(SYMBOLS), key="tv_asset")
     tf = c2.selectbox("Timeframe", list(INTERVALS), index=4, key="tv_tf")
 
-H = 800
+    H = 800
     cfg = {
         "autosize": True,
         "symbol": SYMBOLS[name],
